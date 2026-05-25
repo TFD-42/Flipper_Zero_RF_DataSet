@@ -66,23 +66,27 @@
 
 8-step automated pipeline in `Data_Process/`:
 
-| Step | Script | Status |
-|------|--------|--------|
-| 01 | Ingestion multi-sources | Code ready |
-| 02 | Dedup (hash + semantic) | Code ready |
-| 03 | RF validation (rules) | Code ready |
-| 04 | Protocol DB matching | Code ready |
-| 05 | LLM hallucination check (Ollama Qwen 32B) | Code ready |
-| 06 | NLI fact verification (DeBERTa) | Code ready |
-| 07 | Scoring (0-13 scale) | Code ready |
-| 08 | Export (JSONL buckets) | Code ready |
+| Step | Script | Backend | Status |
+|------|--------|---------|--------|
+| 01 | Ingestion multi-sources | git + datasets | Code ready |
+| 02 | Dedup (hash + semantic) | sentence-transformers cuda:0 | Code ready |
+| 03 | RF validation + **multi-source cross-check + confidence %** | rules + HF + Wikipedia + Web/forums | Code ready |
+| 04 | Protocol DB matching | rapidfuzz CPU | Code ready |
+| 05 | LLM hallucination check | **transformers + device_map="auto"** (Qwen 32B sharded across 6 GPUs) | Code ready |
+| 06 | NLI fact verification | DeBERTa-v3 cuda:1 | Code ready |
+| 07 | Scoring (0-13 scale) | rules | Code ready |
+| 08 | Export (JSONL buckets + confidence_pct) | rules | Code ready |
+
+**Dual scoring system:**
+1. **Step 07 score (0-13)** — internal quality checks (freq/protocol/timings/LLM/NLI/dedup)
+2. **Step 03 confidence (0-100%)** — external triangulation across HF + Wikipedia + WebSearch + forums, with bonuses for triangulation and penalties for contradictions / missing sources
 
 **Target rig:** 6x RTX 3070 (48 GB VRAM), Ubuntu 24.04
 
 **Pending:**
 - [ ] Transfer scripts to rig
-- [ ] Pull Ollama model `qwen2.5:32b-instruct-q4_K_M`
-- [ ] Run full pipeline end-to-end
+- [ ] Install vLLM (`pip install vllm`) and download `Qwen/Qwen2.5-32B-Instruct` HF weights
+- [ ] Run full pipeline end-to-end (with `CROSS_CHECK=1`)
 - [ ] Human audit of 'partial' bucket via `audit_dashboard.py`
 - [ ] Merge audit decisions back into final dataset
 

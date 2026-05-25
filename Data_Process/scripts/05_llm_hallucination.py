@@ -1,16 +1,16 @@
 """
 Step 5 — LLM-based hallucination detection.
 
-Backend dispatch:
-  - Ollama (multi-GPU sharding) for the heavy verifier model
-  - transformers (NLI/entailment) for fact-checking when applicable
+Backend: transformers + accelerate device_map="auto"
+  → automatic tensor sharding across all visible GPUs (6× RTX 3070 here)
+  → no external server needed (Ollama, vLLM)
 
-Each Q&A is scored by the LLM with one of: VALID / SUSPICIOUS / FALSE
-For allocations: the LLM verifies that the (freq, country, service, application) tuple is plausible.
+Each Q&A is scored: VALID / SUSPICIOUS / FALSE
+For allocations: the LLM verifies that (freq, country, service, application) is plausible.
 
 Output: 05_llm_check/llm_checked.jsonl
 """
-import json, importlib.util, time, os
+import json, importlib.util, time, os, gc
 from pathlib import Path
 
 spec = importlib.util.spec_from_file_location("config", Path(__file__).parent / "00_config.py")
@@ -25,33 +25,45 @@ def log(msg):
     print(line, flush=True)
     with open(LOG, "a") as f: f.write(line + "\n")
 
-# Configure Ollama multi-GPU
-os.environ.setdefault("OLLAMA_NUM_PARALLEL", "6")
-os.environ.setdefault("OLLAMA_MAX_LOADED_MODELS", "2")
-os.environ.setdefault("OLLAMA_KEEP_ALIVE", "30m")
+# All 6 GPUs visible to torch
 os.environ.setdefault("CUDA_VISIBLE_DEVICES", "0,1,2,3,4,5")
 
-try:
-    import ollama
-    OLLAMA_AVAILABLE = True
-except ImportError:
-    OLLAMA_AVAILABLE = False
-    log("ollama python lib not available — install with `pip install ollama`")
-
 cfg = config.BACKENDS["hallucination_detection"]
-MODEL = cfg["models"][0]
+MODEL_NAME = cfg["model"]
 
-# Ensure model is pulled
-if OLLAMA_AVAILABLE:
-    try:
-        installed = [m["name"] for m in ollama.list()["models"]]
-        if not any(MODEL.split(":")[0] in m for m in installed):
-            log(f"Pulling model {MODEL}...")
-            ollama.pull(MODEL)
-            log(f"Model {MODEL} ready")
-    except Exception as e:
-        log(f"Could not connect to Ollama: {e}. Falling back to skip.")
-        OLLAMA_AVAILABLE = False
+LLM_READY = False
+try:
+    import torch
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+    log(f"torch={torch.__version__} | CUDA available={torch.cuda.is_available()} | n_gpu={torch.cuda.device_count()}")
+except ImportError as e:
+    log(f"transformers/torch missing: {e}")
+    raise
+
+log(f"Loading {MODEL_NAME} with device_map='auto' across {torch.cuda.device_count()} GPUs...")
+t_load = time.time()
+
+try:
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, trust_remote_code=True)
+    dtype = torch.bfloat16 if cfg.get("dtype") == "bfloat16" else torch.float16
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_NAME,
+        device_map=cfg["device_map"],
+        torch_dtype=dtype,
+        max_memory=cfg.get("max_memory"),
+        trust_remote_code=True,
+        low_cpu_mem_usage=True,
+    )
+    model.eval()
+    LLM_READY = True
+    log(f"Model loaded in {time.time()-t_load:.1f}s")
+    # Show GPU memory distribution
+    for i in range(torch.cuda.device_count()):
+        mem_gb = torch.cuda.memory_allocated(i) / 1e9
+        log(f"  GPU {i}: {mem_gb:.2f} GB allocated")
+except Exception as e:
+    log(f"Could not load model: {e}. Skipping LLM verification.")
+    LLM_READY = False
 
 PROMPT_QA = """You are an RF/radio regulation expert. Evaluate if the following Q&A is technically valid.
 
@@ -81,22 +93,24 @@ SUSPICIOUS  — band is plausible but some detail is questionable.
 FALSE       — wrong country/band/service combination, or invented devices.
 """
 
+@torch.inference_mode() if LLM_READY else (lambda f: f)
 def llm_verdict(prompt: str) -> str:
-    if not OLLAMA_AVAILABLE:
+    if not LLM_READY:
         return "SKIPPED"
     try:
-        resp = ollama.chat(
-            model=MODEL,
-            messages=[{"role": "user", "content": prompt}],
-            options={
-                "temperature": cfg["temperature"],
-                "num_gpu": cfg["num_gpu"],
-                "num_predict": 8,  # we only need one token
-            },
+        messages = [{"role": "user", "content": prompt}]
+        text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        inputs = tokenizer(text, return_tensors="pt").to(model.device)
+        out = model.generate(
+            **inputs,
+            max_new_tokens=cfg.get("max_new_tokens", 8),
+            do_sample=False,
+            temperature=cfg.get("temperature", 0.0),
+            pad_token_id=tokenizer.eos_token_id,
         )
-        out = resp["message"]["content"].strip().upper()
+        gen = tokenizer.decode(out[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True).strip().upper()
         for tok in ("VALID", "SUSPICIOUS", "FALSE"):
-            if tok in out:
+            if tok in gen:
                 return tok
         return "SUSPICIOUS"
     except Exception as e:
@@ -105,7 +119,7 @@ def llm_verdict(prompt: str) -> str:
 
 records = [json.loads(l) for l in open(IN)]
 log(f"Loaded {len(records)} records for LLM verification")
-log(f"Backend: Ollama / model={MODEL} / 6× RTX 3070")
+log(f"Backend: transformers device_map=auto / model={MODEL_NAME}")
 
 verdicts = {"VALID": 0, "SUSPICIOUS": 0, "FALSE": 0, "SKIPPED": 0, "ERROR": 0}
 t0 = time.time()
@@ -147,3 +161,10 @@ with open(OUT, "w") as f:
 log(f"Done. Final verdicts: {verdicts}")
 log(f"Total time: {time.time()-t0:.0f}s")
 log(f"Wrote {len(records)} → {OUT}")
+
+# Cleanup
+if LLM_READY:
+    del model
+    gc.collect()
+    if 'torch' in dir() and torch.cuda.is_available():
+        torch.cuda.empty_cache()

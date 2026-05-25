@@ -53,6 +53,9 @@ def slim(r):
         "llm_verdict": r.get("llm_verdict"),
         "fact_check": r.get("fact_check"),
         "validation": r.get("validation"),
+        "cross_check": r.get("cross_check"),
+        "confidence_pct": (r.get("cross_check") or {}).get("confidence_pct"),
+        "confidence_bucket": (r.get("cross_check") or {}).get("bucket"),
         "bucket": r.get("bucket"),
     }
 
@@ -88,6 +91,11 @@ manifest = {
     "country_distribution": dict(Counter(r.get("country") for r in records if r.get("country"))),
     "llm_verdict_distribution": dict(Counter(r.get("llm_verdict","none") for r in records)),
     "fact_check_distribution": dict(Counter((r.get("fact_check") or {}).get("verdict","none") for r in records)),
+    "confidence_bucket_distribution": dict(Counter((r.get("cross_check") or {}).get("bucket","none") for r in records)),
+    "confidence_pct_avg": round(
+        sum((r.get("cross_check") or {}).get("confidence_pct", 0) for r in records) / max(len(records), 1),
+        1,
+    ),
 }
 
 json.dump(manifest, open(OUT / "manifest.json", "w"), indent=2, ensure_ascii=False)
