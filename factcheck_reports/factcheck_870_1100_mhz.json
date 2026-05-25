@@ -1,0 +1,61 @@
+{
+  "scope": "870-1100 MHz",
+  "total_entries": 152,
+  "method": "Expert regulatory review (ICAO, FAA, EASA, 3GPP, FCC, CEPT)",
+  "results": {
+    "CONFIRMED": 126,
+    "PARTIALLY_CORRECT": 14,
+    "CORRECTED": 12,
+    "UNVERIFIABLE": 0
+  },
+  "confidence": {
+    "HIGH": 140,
+    "MEDIUM": 12,
+    "LOW": 0
+  },
+  "critical_findings": [
+    {
+      "id": 1,
+      "band": "EU Decision 2018/1538 core (874-874.4)",
+      "issue": "Minimum core band may be 874.4-874.8",
+      "correction": "Note added — verify against official EU Decision Annex",
+      "source": "EU Decision 2018/1538 Annex",
+      "status": "PARTIALLY_CORRECT"
+    },
+    {
+      "id": 2,
+      "band": "1087-1093 MHz protection (9 countries)",
+      "issue": "Cited ITU 5.328A — should be 5.328B; bounds 1087.7-1092.3",
+      "correction": "Replaced 5.328A with 5.328B",
+      "source": "ITU RR Article 5",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 3,
+      "band": "DME Y-mode pulse spacing",
+      "issue": "30 µs cited — ICAO specifies 36 µs",
+      "correction": "Changed 30 µs to 36 µs",
+      "source": "ICAO Annex 10 Vol I §3.5",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 4,
+      "band": "OpenSky Network affiliation",
+      "issue": "University of Bern cited — may be ZHAW Zurich",
+      "correction": "Note added",
+      "source": "OpenSky Network publications",
+      "status": "PARTIALLY_CORRECT"
+    }
+  ],
+  "confirmed_facts": [
+    "902-928 MHz ISM = ITU Region 2 ONLY (US/Americas)",
+    "GSM-R 876-880/921-925 MHz per ECC/DEC/(02)05",
+    "Band 8 (880-915/925-960) = global GSM/LTE allocation",
+    "1030 MHz SSR interrogation / 1090 MHz transponder reply (ICAO Annex 10)",
+    "US ADS-B mandate Jan 1, 2020 (FAR 91.225)",
+    "EU ADS-B mandate June 7, 2020 (Reg 2020/587)",
+    "978 MHz UAT = US ONLY (no UAT in Europe)",
+    "China RFID at 920-925 MHz under MIIT decree",
+    "Z-Wave US = 908.42 MHz, NOT 868.42 (which is EU Z-Wave)"
+  ]
+}

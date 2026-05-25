@@ -1,0 +1,81 @@
+{
+  "scope": "470-700 MHz",
+  "total_entries": 56,
+  "method": "Expert regulatory knowledge (no web access)",
+  "results": {
+    "CONFIRMED": 37,
+    "PARTIALLY_CORRECT": 14,
+    "CORRECTED": 5,
+    "UNVERIFIABLE": 0
+  },
+  "confidence": {
+    "HIGH": 42,
+    "MEDIUM": 9,
+    "LOW": 0
+  },
+  "critical_findings": [
+    {
+      "id": 1,
+      "entry": "FR 694-700 MHz PMSE guard band",
+      "issue": "freq_high should be 703, not 700",
+      "source": "ECC/DEC/(15)01",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 2,
+      "entry": "DE DVB-T2 HD transition",
+      "issue": "March 2019 ambiguous; main switchover Q1 2017 - late 2019",
+      "source": "Media Broadcast / BNetzA",
+      "status": "PARTIALLY_CORRECT"
+    },
+    {
+      "id": 3,
+      "entry": "IT DVB-T2 completion July 2022",
+      "issue": "MPEG-2 to MPEG-4 mandate extended to Jan 2023, full migration later",
+      "source": "AGCOM",
+      "status": "PARTIALLY_CORRECT"
+    },
+    {
+      "id": 4,
+      "entry": "FR 608-614 MHz boundary",
+      "issue": "EU channel 38 = 606-614, not 608-614 (US ch.37 boundary used)",
+      "source": "ETSI EN 300 744",
+      "status": "NOTED"
+    },
+    {
+      "id": 5,
+      "entry": "Shure US band G50 channels",
+      "issue": "Claims ch 14-20 but 534 MHz = ch 24",
+      "source": "Shure spec sheet",
+      "status": "PARTIALLY_CORRECT"
+    },
+    {
+      "id": 6,
+      "entry": "Sennheiser R4-9 note",
+      "issue": "607.8 MHz is 1.8 MHz INTO ch 38, not 'just below'",
+      "source": "Sennheiser specs",
+      "status": "PARTIALLY_CORRECT"
+    },
+    {
+      "id": 7,
+      "entry": "WMTS 608-614 US-only",
+      "issue": "CORRECTLY identified as US-only (FCC Part 95 Subpart H)",
+      "source": "47 CFR §95.1101",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": 8,
+      "entry": "Russia 700 MHz not cleared",
+      "issue": "CONFIRMED correct - Russia DTT still uses 700 MHz",
+      "source": "GKRCh/РТРС",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": 9,
+      "entry": "Switzerland DTT shutdown 2019",
+      "issue": "CONFIRMED correct - SRG SSR shut down DTT June 2019",
+      "source": "BAKOM/SRG SSR press release",
+      "status": "CONFIRMED"
+    }
+  ]
+}

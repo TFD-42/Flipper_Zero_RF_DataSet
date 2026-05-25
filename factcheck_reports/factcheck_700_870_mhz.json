@@ -1,0 +1,68 @@
+{
+  "scope": "700-870 MHz",
+  "total_entries": 106,
+  "method": "Expert regulatory review (3GPP, ARCEP, Ofcom, ETSI, LoRa Alliance)",
+  "results": {
+    "CONFIRMED": 82,
+    "PARTIALLY_CORRECT": 2,
+    "CORRECTED": 16,
+    "UNVERIFIABLE": 0
+  },
+  "confidence": {
+    "HIGH": 90,
+    "MEDIUM": 16,
+    "LOW": 0
+  },
+  "critical_findings": [
+    {
+      "id": 1,
+      "band": "UK 700 MHz (703-733/758-788)",
+      "issue": "Vodafone cited as winner — actually O2/VMO2",
+      "correction": "Replaced Vodafone with O2/VMO2",
+      "source": "Ofcom March 2021 auction results",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 2,
+      "band": "FR 700 MHz (703-733/758-788)",
+      "issue": "Free=2x10/Bouygues=2x5 — swapped",
+      "correction": "Free=2x5, Bouygues=2x10",
+      "source": "ARCEP Dec 2015 auction results",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 3,
+      "band": "733-758 MHz duplex gap (6 countries)",
+      "issue": "ECC Decision (14)02 cited — wrong (covers 800 MHz)",
+      "correction": "Replaced with ECC Decision (15)01",
+      "source": "ECC/DEC/(15)01",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 4,
+      "band": "FR 868.7-869.2 MHz Gazpar",
+      "issue": "Gazpar cited at 868 — actually 169 MHz VHF Wize",
+      "correction": "Note added",
+      "source": "GRDF Gazpar technical specs",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 5,
+      "band": "US 698-703 MHz",
+      "issue": "Described as 5 MHz guard — actually ~1 MHz guard",
+      "correction": "Note added",
+      "source": "FCC 700 MHz Band Plan",
+      "status": "PARTIALLY_CORRECT"
+    }
+  ],
+  "confirmed_facts": [
+    "Band 28 (703-733/758-788) for all EU + CN, NOT US",
+    "US 700 MHz: Bands 12, 13, 14 (FirstNet), 17",
+    "Band 20 (791-821/832-862) for EU + RU, NOT US/CN",
+    "863-870 MHz SRD sub-bands K/L/M/N/P/Q per ETSI EN 300 220",
+    "LoRaWAN EU868: default channels 868.1/868.3/868.5 MHz",
+    "US LoRaWAN = 902-928 MHz (US915)",
+    "CN LoRaWAN = 470-510 MHz (CN470)",
+    "RU LoRaWAN = 864-870 MHz (RU864)"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "title": "Frequency Allocation Dataset — Comprehensive Fact-Check Report",
+  "date": "2026-05-25",
+  "scope": "280-1100 MHz across 9 countries (FR, US, UK, CN, DE, RU, ES, IT, CH)",
+  "methodology": "Multi-agent expert regulatory review using ITU Radio Regulations, FCC 47 CFR, CEPT ECC Decisions, ETSI standards, ICAO Annex 10, 3GPP specifications, and national regulators (ANFR, Ofcom, BNetzA, BAKOM, CNMC, AGCOM, MIIT, GRFC).",
+  "total_entries_reviewed": 500,
+  "summary": {
+    "CONFIRMED": 359,
+    "PARTIALLY_CORRECT": 60,
+    "CORRECTED": 50,
+    "UNVERIFIABLE": 6
+  },
+  "key_corrections_applied": [
+    "AEHF replaced with MUOS in US UHF MILSATCOM entries",
+    "GOES/POES at 290 MHz removed (actual: 1694.5 MHz)",
+    "COSPAS-SARSAT at 399.9 MHz corrected (actual: 406.0-406.1 MHz)",
+    "BeiDou/GLONASS at 399.9 MHz corrected (both L-band only)",
+    "UK 700 MHz: Vodafone replaced with O2/VMO2 (auction winner)",
+    "FR 700 MHz: Free/Bouygues 2x5/2x10 allocations swapped back to correct",
+    "ECC Decision (14)02 replaced with (15)01 for 700 MHz duplex gap",
+    "FR Gazpar gas meters: noted as 169 MHz VHF, not 868 MHz",
+    "ITU footnote 5.328A corrected to 5.328B for 1090 MHz protection",
+    "DME Y-mode pulse spacing corrected: 30 µs → 36 µs (ICAO Annex 10)",
+    "FR 694-700 MHz guard band extended to 694-703 MHz (ECC/DEC/(15)01)",
+    "Cospas-Sarsat 406 MHz: added ITU RR 5.266 footnote",
+    "GOES DCS upper bound: 402.4 → 402.1 MHz",
+    "EU TPMS mandate: added Nov 2012 deadline (was Nov 2014 only)",
+    "Spain SIRDEE clarified at 380-400 MHz (not 450-470)",
+    "Swiss Polycom clarified at 380-400 MHz (not 450)"
+  ],
+  "sources_consulted": [
+    "ITU Radio Regulations Article 5",
+    "FCC 47 CFR Parts 2, 15, 22, 24, 27, 73, 74, 90, 95, 97",
+    "CEPT ERC Report 25 (European Common Allocation)",
+    "CEPT ECC Decisions: (02)05, (04)02, (08)05, (14)02, (15)01, (15)05, (17)06",
+    "EU Decisions 2006/771/EC, 2018/1538",
+    "ETSI EN 300 220 (SRD), EN 300 392 (TETRA), EN 302 561 (TEDS)",
+    "ICAO Annex 10 Vol I (Aeronautical Radio Navigation)",
+    "3GPP TS 36.101 / 38.101 (LTE/NR Band designations)",
+    "LoRa Alliance Regional Parameters RP002-1.0.2",
+    "ANFR TNRBF, Ofcom UKPFA, BNetzA Frequenzplan, BAKOM Frequenzzuweisungsplan",
+    "CNMC CNAF (Spain), AGCOM PNRF (Italy), MIIT (China), GRFC (Russia)"
+  ],
+  "limitations": [
+    "Performed via expert regulatory knowledge (training data) — not live source verification",
+    "Very recent regulatory changes (2025+) may not be reflected",
+    "Some country-specific operator details (e.g., exact MHz allocations to specific carriers) need live ARCEP/Ofcom/BNetzA registry confirmation",
+    "Modulation specifics for proprietary systems (military, China PDT) cannot be independently verified from public sources"
+  ]
+}

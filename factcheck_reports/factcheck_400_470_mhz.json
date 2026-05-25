@@ -1,0 +1,84 @@
+{
+  "scope": "400-470 MHz",
+  "total_entries": 60,
+  "method": "Expert regulatory review",
+  "results": {
+    "CONFIRMED": 42,
+    "PARTIALLY_CORRECT": 18,
+    "CORRECTED": 8,
+    "UNVERIFIABLE": 0
+  },
+  "confidence": {
+    "HIGH": 50,
+    "MEDIUM": 10,
+    "LOW": 0
+  },
+  "critical_findings": [
+    {
+      "id": 1,
+      "band": "433 MHz SRD h1.1",
+      "issue": "ERP 10 mW cited — actually 25 mW for h1.1",
+      "correction": "Added factcheck note",
+      "source": "ERC/REC 70-03 Annex 1 h1.1",
+      "status": "PARTIALLY_CORRECT"
+    },
+    {
+      "id": 2,
+      "band": "406 MHz Cospas-Sarsat",
+      "issue": "Missing ITU RR 5.266 footnote",
+      "correction": "Added 5.266 to reg ref",
+      "source": "ITU Radio Regulations",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 3,
+      "band": "401-402.4 MHz GOES DCS",
+      "issue": "Upper bound should be 402.1 MHz",
+      "correction": "Changed freq_high to 402.1",
+      "source": "NOAA DCS specifications",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 4,
+      "band": "EU TPMS mandate",
+      "issue": "Only Nov 2014 cited, missed Nov 2012 first deadline",
+      "correction": "Added both dates",
+      "source": "EC Regulation 661/2009",
+      "status": "PARTIALLY_CORRECT"
+    },
+    {
+      "id": 5,
+      "band": "ES 450-470 MHz",
+      "issue": "SIRDEE TETRA cited — actually at 380-400 MHz",
+      "correction": "Added factcheck note",
+      "source": "CNAF Spain",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 6,
+      "band": "CH 450-470 MHz",
+      "issue": "Polycom cited at 450 — actually at 380-400",
+      "correction": "Added factcheck note",
+      "source": "BAKOM Frequenzzuweisungsplan",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 7,
+      "band": "RU amateur",
+      "issue": "5W power limit likely too low",
+      "correction": "Note added — Russian amateur classes allow higher power",
+      "source": "ГРЧЦ amateur regulations",
+      "status": "PARTIALLY_CORRECT"
+    }
+  ],
+  "confirmed_facts": [
+    "MICS 402-405 MHz: 25 µW EIRP, 300 kHz, 10 channels (ITU-R SA.1346)",
+    "Cospas-Sarsat 406.0-406.1 MHz protected (ITU RR 5.266 + 5.267)",
+    "433 MHz NOT ISM in US (US ISM = 902-928 MHz)",
+    "Somfy RTS = exactly 433.42 MHz (verified Somfy product specs)",
+    "EU TPMS = 433.92 MHz (not 315 MHz like US/Japan)",
+    "PMR446: 500 mW ERP per ECC/DEC/(15)05",
+    "PMR446 does NOT exist in US (US = FRS at 462/467 MHz)",
+    "Germany LTE Band 72 (450 MHz) by 450connect — Smart Grid"
+  ]
+}

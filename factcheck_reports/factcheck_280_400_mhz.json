@@ -1,0 +1,100 @@
+{
+  "scope": "280-400 MHz",
+  "total_entries": 126,
+  "method": "Expert regulatory review (ITU RR, FCC, CEPT/ECC, ICAO, ANFR, Ofcom, BNetzA, BAKOM)",
+  "results": {
+    "CONFIRMED": 72,
+    "PARTIALLY_CORRECT": 12,
+    "CORRECTED": 9,
+    "UNVERIFIABLE": 6
+  },
+  "confidence": {
+    "HIGH": 95,
+    "MEDIUM": 25,
+    "LOW": 6
+  },
+  "critical_findings": [
+    {
+      "id": 1,
+      "band": "US 280-300 MHz",
+      "issue": "AEHF cited at UHF — wrong (EHF satellite, 44/20 GHz)",
+      "correction": "Replaced with MUOS (Mobile User Objective System)",
+      "source": "Lockheed Martin AEHF/MUOS specs",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 2,
+      "band": "US 290-300 MHz",
+      "issue": "GOES/POES at 290-300 — wrong (GOES at 1694.5 MHz)",
+      "correction": "Replaced with met aids/military",
+      "source": "NOAA / NESDIS specs",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 3,
+      "band": "FR/UK/DE 300-312 MHz",
+      "issue": "Wind profilers at 300 MHz — wrong (482 MHz / 1290 MHz)",
+      "correction": "Added factcheck note",
+      "source": "DWD Lindenberg / Met Office",
+      "status": "PARTIALLY_CORRECT"
+    },
+    {
+      "id": 4,
+      "band": "All 399.9-400 MHz",
+      "issue": "COSPAS-SARSAT cited — wrong (CS = 406.0-406.1)",
+      "correction": "Replaced with RNSS/Argos",
+      "source": "ITU RR 5.366 + 5.267",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 5,
+      "band": "CN 399.9 MHz",
+      "issue": "BeiDou cited — wrong (BeiDou = L-band)",
+      "correction": "Replaced with Argos PTT",
+      "source": "BeiDou ICD",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 6,
+      "band": "RU 399.9 MHz",
+      "issue": "GLONASS cited — wrong (GLONASS = L-band)",
+      "correction": "Replaced with RNSS downlink",
+      "source": "GLONASS ICD",
+      "status": "CORRECTED"
+    },
+    {
+      "id": 7,
+      "band": "RU 280-290",
+      "issue": "Molniya cited as current — decommissioned",
+      "correction": "Added note about Meridian successor",
+      "source": "TASS / RKK Energia",
+      "status": "PARTIALLY_CORRECT"
+    },
+    {
+      "id": 8,
+      "band": "CN 280-290",
+      "issue": "Shentong cited — unverified PLA constellation name",
+      "correction": "Kept Feng Huo only",
+      "source": "PLA Strategic Support Force open sources",
+      "status": "PARTIALLY_CORRECT"
+    },
+    {
+      "id": 9,
+      "band": "CH 350-380",
+      "issue": "'TETRA band' imprecise — CH uses TETRAPOL",
+      "correction": "Clarified TETRAPOL terminology",
+      "source": "BAKOM Frequenzzuweisungsplan",
+      "status": "PARTIALLY_CORRECT"
+    }
+  ],
+  "confirmed_facts": [
+    "315 MHz TPMS = US/Japan only, NOT Europe (verified via ECC/REC 70-03)",
+    "327.4 MHz Deuterium line radio astronomy (ITU RR 5.149)",
+    "328.6-335.4 MHz ILS Glide Path per ICAO Annex 10 Vol I",
+    "380-385/390-395 MHz TETRA PPDR pairing per ECC/DEC/(08)05",
+    "US Federal Government exclusive 380-400 MHz (NTIA)",
+    "China PDT at 350-370 MHz, NOT TETRA",
+    "Switzerland uses TETRAPOL (Polycom), not TETRA",
+    "INPT France, Airwave UK, BOSnet Germany, SIRDEE Spain — all PPDR networks correctly identified"
+  ]
+}
