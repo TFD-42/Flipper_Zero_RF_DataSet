@@ -2,3 +2,15 @@ __pycache__/
 *.pyc
 *.pyo
 .DS_Store
+
+# Secrets / credentials
+.env
+.env.*
+*.key
+*.pem
+credentials*
+secrets*
+*_secret*
+id_rsa*
+.netrc
+
