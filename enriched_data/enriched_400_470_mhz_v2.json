@@ -1,0 +1,50 @@
+[
+  {
+    "freq_low_mhz": 433.05,
+    "freq_high_mhz": 434.79,
+    "country_code": "EU",
+    "region": "CEPT Region 1",
+    "service": "SRD (ISM) non-specific 433 MHz",
+    "status": "PRIMARY",
+    "application": "Sub-GHz IoT / RKE / domotique",
+    "typical_devices": "Volkswagen/BMW/Mercedes/Renault RKE fob (433.92 MHz); Bosch Smart Home; Somfy RTS roller shutter remote; Oregon Scientific WMR89 weather station; Bresser 7-in-1 weather sensor; ELRO AB600 alarm; Yale Easy Fit alarm; Nexa/ANSLUT wireless switch; FS20 home automation; Chacon DIO wireless plugs; Flipper Zero Sub-GHz (OOK/ASK/FSK read+replay); HackRF One + SDR#; RTL-SDR + rtl_433; Yard Stick One",
+    "modulation": "OOK / ASK (most common); FSK (some sensors); Manchester encoding common",
+    "power_limit": "10 mW e.r.p. <10% DC; 1 mW e.r.p. 100% DC; 500 mW ≤1% DC (EU sub-bands)",
+    "channel_spacing_khz": null,
+    "regulatory_ref": "ERC/REC 70-03 Annex 1 / ETSI EN 300 220-1/2 / ITU RR 5.138 5.150",
+    "notes": "Central freq 433.92 MHz most common. Protocol zoo: rtl_433 decodes 200+ device types. Key tools: Flipper Zero (GUI decode+replay), rtl_433 (CLI), URH (Universal Radio Hacker), SDR# + DSD. NOT a primary ISM band in USA — US devices use 315/915 MHz.",
+    "verified": true
+  },
+  {
+    "freq_low_mhz": 446.0,
+    "freq_high_mhz": 446.2,
+    "country_code": "EU",
+    "region": "CEPT Region 1",
+    "service": "PMR446 (License-free Land Mobile)",
+    "status": "PRIMARY",
+    "application": "Licence-free walkie-talkie EU",
+    "typical_devices": "Motorola TLKR T80 Extreme; Motorola XT420/XT460 (digital dPMR); Midland G7 Pro; Kenwood TK-3401D (dPMR446); Cobra AM245; Baofeng BF-888S (not PMR446 compliant but often used); Retevis H777",
+    "modulation": "FM analog (ch 1-8 analog) + dPMR FDMA 6.25 kHz (ch 9-16 digital)",
+    "power_limit": "0.5W ERP",
+    "channel_spacing_khz": 12.5,
+    "regulatory_ref": "ERC/DEC/(98)25 / ETSI EN 300 296 (analog) / ETSI EN 301 166 (dPMR)",
+    "notes": "16 analog channels (446.00625-446.19375 MHz) + 32 digital sub-channels (dPMR/DMR). No repeaters allowed. EU-harmonised: no licence needed. NOT legal outside CEPT area without local authorisation.",
+    "verified": true
+  },
+  {
+    "freq_low_mhz": 462.5625,
+    "freq_high_mhz": 467.7125,
+    "country_code": "USA",
+    "region": "ITU Region 2",
+    "service": "FRS / GMRS (Land Mobile)",
+    "status": "PRIMARY",
+    "application": "Licence-free walkie-talkie USA",
+    "typical_devices": "Motorola T600 FRS; Midland X-Talker T71VP3; Uniden SX507; BaoFeng BF-F8HP (GMRS capable); Motorola DLR1020 (DECT 1.9 GHz) — note: distinct from FRS; GMRS repeaters (licensed)",
+    "modulation": "FM analog (FRS 12.5 kHz); CTCSS/DCS squelch tones",
+    "power_limit": "0.5W ERP (FRS simplex); 50W (GMRS licensed)",
+    "channel_spacing_khz": 12.5,
+    "regulatory_ref": "FCC Part 95 Subpart B (FRS) / Subpart E (GMRS)",
+    "notes": "22 FRS channels: ch 1-7 (462.5625-462.7125 MHz) + ch 8-14 (467.5625-467.7125 MHz) + ch 15-22 shared FRS/GMRS. GMRS requires FCC licence ($35). Flipper Zero Sub-GHz can monitor FRS channels.",
+    "verified": true
+  }
+]

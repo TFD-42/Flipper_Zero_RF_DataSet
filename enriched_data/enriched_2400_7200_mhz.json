@@ -1,0 +1,34 @@
+[
+  {
+    "freq_low_mhz": 5150.0,
+    "freq_high_mhz": 5850.0,
+    "country_code": "GLOBAL",
+    "region": "ITU All Regions",
+    "service": "SRD (Wi-Fi 5 GHz) UNII-1/2A/2C/3",
+    "status": "PRIMARY",
+    "application": "Wi-Fi 5 GHz 802.11a/n/ac/ax",
+    "typical_devices": "TP-Link Archer AX90 (tri-band); Ubiquiti UniFi AC-HD; Asus RT-AX88U; Intel AX210 Wi-Fi 6E chip (5+6 GHz); Qualcomm QCN9074 Wi-Fi 6 SoC; 5 GHz only APs: Ubiquiti airMAX M5; Mikrotik SXTsq-5; WiGig/802.11ad (60 GHz — different band)",
+    "modulation": "OFDM (802.11a/n/ac/ax); MU-MIMO; OFDMA (ax)",
+    "power_limit": "200 mW EIRP (5150-5350 MHz EU indoor); 1W EIRP (5470-5725 MHz EU); 200 mW (FCC UNII-1); 1W (FCC UNII-2/3)",
+    "channel_spacing_khz": 20000,
+    "regulatory_ref": "ETSI EN 301 893 / FCC Part 15.407 / ECC/DEC/(04)08 / IEEE 802.11-2020",
+    "notes": "DFS (Dynamic Frequency Selection) mandatory on UNII-2A (5250-5350) and UNII-2C (5470-5725). 20/40/80/160 MHz BW channels. EU: 5150-5350 MHz indoor only. Channels: UNII-1 (36-48), UNII-2A (52-64), UNII-2C (100-140), UNII-3 (149-165 USA only). China: only 5725-5850 MHz approved.",
+    "verified": true
+  },
+  {
+    "freq_low_mhz": 5925.0,
+    "freq_high_mhz": 7125.0,
+    "country_code": "GLOBAL",
+    "region": "ITU All Regions",
+    "service": "SRD (Wi-Fi 6E/7)",
+    "status": "PRIMARY",
+    "application": "Wi-Fi 6E (802.11ax 6 GHz) / Wi-Fi 7 (802.11be)",
+    "typical_devices": "TP-Link Archer AXE300 (Wi-Fi 6E tri-band); Netgear Orbi RBK863S; Asus ZenWiFi Pro ET12; Intel AX210 (Wi-Fi 6E, 6 GHz support); Qualcomm FastConnect 6900 (Wi-Fi 6E SoC); Samsung Galaxy S22+ (Wi-Fi 6E); Apple iPhone 15 Pro (Wi-Fi 6E); Ubiquiti U6-Enterprise (Wi-Fi 6E AP)",
+    "modulation": "OFDMA; MU-MIMO; 4096-QAM (Wi-Fi 6E); 4K-QAM + multi-link (Wi-Fi 7)",
+    "power_limit": "200 mW EIRP indoor LPI (EU 5925-6425 MHz); 23 dBm VLP (very low power outdoor); 5W (FCC USA full band)",
+    "channel_spacing_khz": 20000,
+    "regulatory_ref": "ECC/DEC/(20)01 (EU 500 MHz) / FCC Part 15.407 (USA full 1200 MHz) / ETSI EN 302 567",
+    "notes": "EU: only 5925-6425 MHz (500 MHz), NOT 6425-7125 MHz. USA: full 5925-7125 MHz (1200 MHz). Channels: 1,5,9,13,17,21,25... (20 MHz) up to ch 93 (EU) or 233 (USA). 6E-only: no legacy 802.11 overhead. Wi-Fi 7 (802.11be): multi-link operation across 2.4+5+6 GHz simultaneously.",
+    "verified": true
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "freq_low_mhz": 863.0,
+    "freq_high_mhz": 870.0,
+    "country_code": "EU",
+    "region": "CEPT Region 1",
+    "service": "SRD (ISM) 868 MHz EU",
+    "status": "PRIMARY",
+    "application": "LoRaWAN / Sigfox / Z-Wave / IoT EU",
+    "typical_devices": "Semtech SX1276/SX1278 LoRa module (HOPERF RFM95W); RAK Wireless RAK4631 LoRaWAN; Dragino LHT65 temperature sensor; TTIG (The Things Indoor Gateway); Sigfox Monarch module (Murata CMWZ1); Silicon Labs EFR32 Z-Wave chip; Aeotec Z-Stick Gen5+ (868.4 MHz); Fibaro door sensor (Z-Wave EU 868.4 MHz); Somfy io-homecontrol (868.95 MHz); Somfy RTS (433 MHz variant also exists); Schneider Wiser (Zigbee 2.4 GHz, some 868 MHz); Elsys ERS CO2 LoRa sensor; Flipper Zero Sub-GHz (868 MHz band monitoring)",
+    "modulation": "LoRa CSS (Chirp Spread Spectrum, SF7-SF12, BW 125/250/500 kHz); Sigfox BPSK 100bps UL / GFSK 600bps DL; Z-Wave GFSK/FSK 9.6/40/100 kbps; Somfy io FHSS",
+    "power_limit": "25 mW ERP 868.0-868.6 MHz (Band B ≤1% DC); 500 mW 869.4-869.65 MHz (Band D ≤10% DC)",
+    "channel_spacing_khz": 200,
+    "regulatory_ref": "ETSI EN 300 220-1/2 / ERC/REC 70-03 Annex 1 / LoRa Alliance RP002 Regional Parameters EU868",
+    "notes": "LoRa EU868 channels: 868.1/868.3/868.5 MHz (CH1-3, 125 kHz BW SF7-12). Gateway join: 868.1-868.5 MHz. Sigfox UL: 868.0-868.6 MHz (random 100 Hz BW channels). Z-Wave EU: 868.40 MHz (R1: 9.6 kbps) + 869.85 MHz (R2). Flipper Zero: reads LaCrosse/Oregon/Bresser weather sensors on 868 MHz.",
+    "verified": true
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "freq_low_mhz": 13.553,
+    "freq_high_mhz": 13.567,
+    "country_code": "GLOBAL",
+    "region": "ITU All Regions",
+    "service": "SRD (ISM) NFC/RFID HF",
+    "status": "PRIMARY",
+    "application": "NFC & HF RFID",
+    "typical_devices": "NXP MIFARE Classic 1K/4K; NXP MIFARE Ultralight; NXP NTAG213/215/216; NXP ICODE SLI; HID iCLASS; Legic Prime; EM4100/EM4200; ACR122U USB NFC reader; Flipper Zero (NFC module); ACR1252U; Sony RC-S380",
+    "modulation": "ASK (ISO 14443A: 100% ASK; ISO 14443B: 10% ASK; ISO 15693: OOK/ASK)",
+    "power_limit": "42 dBμA/m at 10m (ETSI EN 300 330)",
+    "channel_spacing_khz": null,
+    "regulatory_ref": "ITU RR Footnote 5.138 / ERC/REC 70-03 Annex 9 / EN 300 330 / ISO 14443 / ISO 15693 / NFC Forum",
+    "notes": "ISO 14443 Type A (MIFARE): 106/212/424/848 kbps. ISO 14443 Type B: 106-848 kbps. ISO 15693 (vicinity): up to 1.65 Mbps. Flipper Zero reads MIFARE Classic via NFC module natively.",
+    "verified": true
+  },
+  {
+    "freq_low_mhz": 26.957,
+    "freq_high_mhz": 27.283,
+    "country_code": "EU",
+    "region": "CEPT Region 1",
+    "service": "CB radio + ISM 27 MHz",
+    "status": "PRIMARY",
+    "application": "Citizens Band + ISM",
+    "typical_devices": "Midland Alan 48 Plus (EU CB); President Lincoln II+; Cobra 29 LTD; RC toys 27 MHz (Tamiya, old Traxxas); ISM industrial heaters; Flipper Zero (Sub-GHz module, detect only at 27 MHz)",
+    "modulation": "AM/FM/SSB (CB); AM/FM (RC toys)",
+    "power_limit": "4W ERP (FM EU CB); 12W PEP (SSB, DE only)",
+    "channel_spacing_khz": 10,
+    "regulatory_ref": "ERC/REC 70-03 / ETSI EN 300 135 / FCC Part 95 (USA CB AM 4W)",
+    "notes": "EU: 40 channels FM (ch 1=26.965 MHz ... ch 40=27.405 MHz). Germany: 80 channels + SSB 12W. RC toys: 27.045/27.095/27.145/27.195/27.255 MHz (6 sub-channels). Flipper Zero sub-GHz module covers this range passively.",
+    "verified": true
+  },
+  {
+    "freq_low_mhz": 1.0,
+    "freq_high_mhz": 6000.0,
+    "country_code": "N/A",
+    "region": "N/A (test equipment)",
+    "service": "SDR transceiver (HackRF One)",
+    "status": "DEVICE",
+    "application": "Software-Defined Radio research/education",
+    "typical_devices": "HackRF One (Great Scott Gadgets); HackRF One r9 (2022 revision); PortaPack H2 (standalone HackRF); HackRF Blue (clone); RTL-SDR Blog v3 (RX only, 500 kHz-1.766 GHz); Airspy HF+ Discovery (RX 0.5 kHz-31 MHz + 60-260 MHz); LimeSDR Mini 2.0 (10 MHz-3.5 GHz full duplex); ADALM-PLUTO (325-3800 MHz full duplex); BladeRF 2.0 micro (47 MHz-6 GHz full duplex)",
+    "modulation": "Software-defined (any)",
+    "power_limit": "TX max ~10-15 dBm (variable by frequency); RX max input -5 dBm (damage threshold)",
+    "channel_spacing_khz": null,
+    "regulatory_ref": "Great Scott Gadgets HackRF One official docs / FCC ID: 2A4FU-HACKRFONE",
+    "notes": "HackRF One specs: 1 MHz-6 GHz tuning, half-duplex, 20 MHz max instantaneous BW, 8-bit ADC. CRITICAL: max RX input -5 dBm — use 20-30 dB attenuator near strong TX. Software: GNU Radio, SDR#, GQRX, SDRangel, URH, HackRF tools (hackrf_transfer, hackrf_sweep). TX requires regulatory authorization per local laws. NEVER transmit without licence on licensed bands.",
+    "verified": true
+  }
+]

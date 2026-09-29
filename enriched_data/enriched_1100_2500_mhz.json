@@ -1,0 +1,50 @@
+[
+  {
+    "freq_low_mhz": 1559.0,
+    "freq_high_mhz": 1610.0,
+    "country_code": "GLOBAL",
+    "region": "ITU All Regions",
+    "service": "GNSS (GPS/Galileo/GLONASS/BeiDou L1)",
+    "status": "PRIMARY",
+    "application": "Satellite navigation",
+    "typical_devices": "u-blox NEO-M8N GPS module; u-blox ZED-F9P RTK; Quectel LC29H dual-band GNSS; Trimble NetR9; NovAtel GNSS-850; STMicro Teseo III chip; iPhone/Android GNSS chip (Broadcom BCM47765); HackRF One (GNSS spoofing research — illegal without authorization)",
+    "modulation": "BPSK/QPSK DSSS; C/A code 1.023 MHz chip rate; P(Y) code 10.23 MHz",
+    "power_limit": "Receive only (−130 dBm typical ground level signal)",
+    "channel_spacing_khz": null,
+    "regulatory_ref": "GPS ICD IS-GPS-200 / Galileo OS SIS ICD / GLONASS ICD 5.1 / BeiDou ICD 2.1",
+    "notes": "GPS L1: 1575.42 MHz (C/A code); Galileo E1: 1575.42 MHz; GLONASS L1: 1602.0 MHz ± n×0.5625 MHz (FDMA, 14 channels); BeiDou B1: 1561.098 MHz. RTK precision: cm-level with correction services. GNSS jamming/spoofing is illegal in most jurisdictions.",
+    "verified": true
+  },
+  {
+    "freq_low_mhz": 1880.0,
+    "freq_high_mhz": 1900.0,
+    "country_code": "EU",
+    "region": "CEPT Region 1",
+    "service": "DECT",
+    "status": "PRIMARY",
+    "application": "Digital cordless phone / DECT IoT",
+    "typical_devices": "Gigaset A415 DECT phone; Panasonic KX-TG6821 DECT; AVM FRITZ!Fon C5; Snom M400 DECT VoIP; Ascom d63 DECT handset; Spectralink 84-Series DECT; DECT baby monitors (Philips AVENT SCD630); nRF52840 + DECT NR+ module (Nordic Semi)",
+    "modulation": "GFSK; TDMA/TDD; 1728 kbps gross; 32 kbps ADPCM voice per slot",
+    "power_limit": "250 mW peak (24 dBm); 10 mW average",
+    "channel_spacing_khz": 1728,
+    "regulatory_ref": "ETSI EN 300 175 / ETSI EN 301 406 / ETSI TS 103 636 (DECT-2020 NR)",
+    "notes": "10 carriers 1881.792-1897.344 MHz (1728 kHz spacing), 24 time slots/frame. DECT-2020 NR: IoT/5G extension. DECT-ULE (Ultra Low Energy): smart home sensors. Flipper Zero does NOT have a DECT module natively — requires external hardware.",
+    "verified": true
+  },
+  {
+    "freq_low_mhz": 2400.0,
+    "freq_high_mhz": 2483.5,
+    "country_code": "GLOBAL",
+    "region": "ITU All Regions",
+    "service": "SRD (ISM) 2.4 GHz",
+    "status": "PRIMARY",
+    "application": "Wi-Fi / Bluetooth / Zigbee / Z-Wave 2.4 GHz / proprietary 2.4 GHz",
+    "typical_devices": "Wi-Fi AP: TP-Link Archer AX73 (WiFi 6); Ubiquiti UniFi AP AC Pro; Mikrotik hAP ac3; Cisco Catalyst 9120; BT adapter: Intel AX200 Wi-Fi 6; Raspberry Pi 4 (BCM2711 integrated); Zigbee: Texas Instruments CC2652R; Phoscon ConBee II USB stick; Philips Hue Bridge (Zigbee); Ikea Trådfri gateway; Proprietary 2.4 GHz: DJI Occusync 2.0 (drones 2.4/5.8 GHz); Logitech Unifying receiver (2.4 GHz GFSK); Xbox/PS wireless controllers; HackRF One + GNU Radio (802.11 monitor mode, BLE sniffing); Flipper Zero (Wi-Fi dev board ESP32-S2; BLE scan via NRF24 module)",
+    "modulation": "Wi-Fi 802.11b: DSSS/CCK; 802.11g/n: OFDM; 802.11ax: OFDMA+MU-MIMO; BT: GFSK (BR) / π/4-DQPSK (EDR) / 8DPSK (EDR3); BLE: GFSK 1M/2M PHY; Zigbee: O-QPSK DSSS; Proprietary: GFSK/OOK/FHSS",
+    "power_limit": "100 mW EIRP (Wi-Fi EU); 20 dBm (100 mW) Wi-Fi USA; BT Class 1: 100 mW; BT Class 2: 2.5 mW",
+    "channel_spacing_khz": 5000,
+    "regulatory_ref": "ETSI EN 300 328 / FCC Part 15.247 / IEEE 802.11-2020 / Bluetooth Core Spec 5.4 / IEEE 802.15.4",
+    "notes": "Wi-Fi 2.4 GHz: ch 1(2412)-ch13(2472) EU, ch 1-11 USA, ch 14(2484) Japan 802.11b only. Non-overlapping: ch 1/6/11. BLE advertising: 37=2402 MHz, 38=2426 MHz, 39=2480 MHz. Zigbee ch 11-26 (2405-2480 MHz, 5 MHz spacing). Flipper Zero NRF24 module: scans 2.4 GHz Logitech/wireless keyboard protocols.",
+    "verified": true
+  }
+]

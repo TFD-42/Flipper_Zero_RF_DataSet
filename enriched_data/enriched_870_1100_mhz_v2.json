@@ -1,0 +1,50 @@
+[
+  {
+    "freq_low_mhz": 902.0,
+    "freq_high_mhz": 928.0,
+    "country_code": "USA",
+    "region": "ITU Region 2",
+    "service": "SRD (ISM) 902-928 MHz USA",
+    "status": "PRIMARY",
+    "application": "LoRa US915 / Z-Wave US / RFID UHF",
+    "typical_devices": "Semtech SX1276 (LoRa US915); Dragino DLOS8 gateway; Kerlink iFemtoCell; Impinj R420 RFID reader; Alien ALR-9900+ RFID reader; Z-Wave US 908.42 MHz (Aeotec Z-Stick Gen5); Samsara vehicle tracker (900 MHz cellular fallback); FLIR AX8 (some 900 MHz); Insteon PLM (915 MHz); X10 RF (310 MHz variant); Flipper Zero Sub-GHz (915 MHz band scan)",
+    "modulation": "LoRa CSS 125/500 kHz BW; Sigfox DBPSK; Z-Wave GFSK 9.6/40/100 kbps; RFID EPC Gen2 FM0/Miller",
+    "power_limit": "1W (30 dBm) FHSS/DSSS (FCC 15.247); 250 mW fixed-freq; 1W EIRP (RFID)",
+    "channel_spacing_khz": 200,
+    "regulatory_ref": "FCC 47 CFR Part 15.247 / 15.249 / FCC 15.247(b)(1) FHSS",
+    "notes": "LoRa US915: 64 UL channels 902.3-914.9 MHz (200 kHz spacing) + 8 DL channels 923.3-927.5 MHz. NOT legal in EU (EU uses 868 MHz). Z-Wave US: 908.42 MHz (primary) + 916 MHz (backup). EPC Gen2 RFID UHF: 902-928 MHz in USA.",
+    "verified": true
+  },
+  {
+    "freq_low_mhz": 920.5,
+    "freq_high_mhz": 928.1,
+    "country_code": "JPN",
+    "region": "ITU Region 3",
+    "service": "SRD (ISM) 920 MHz Japan",
+    "status": "PRIMARY",
+    "application": "LoRa JP / IoT Japan",
+    "typical_devices": "LoRa JP AS920-923 modules (Murata CMWX1ZZABZ-078); Semtech SX1276 JP variant; Soracom LTE-M/LoRa; Nihon Denshi Sekkei 920 MHz sensor",
+    "modulation": "LoRa CSS 125 kHz BW; FSK 50 kbps",
+    "power_limit": "20 mW (13 dBm) EIRP",
+    "channel_spacing_khz": 200,
+    "regulatory_ref": "ARIB STD-T108 / MIC Japan Ordinance",
+    "notes": "Japan LoRa AS923: 923.2/923.4 MHz (2 default channels + 6 additional 922.0-922.6/923.0 MHz). Different from US 915 MHz and EU 868 MHz. Z-Wave JP: 919.82 MHz.",
+    "verified": true
+  },
+  {
+    "freq_low_mhz": 1087.0,
+    "freq_high_mhz": 1093.0,
+    "country_code": "GLOBAL",
+    "region": "ITU All Regions",
+    "service": "AERONAUTICAL RADIONAVIGATION (ADS-B)",
+    "status": "PRIMARY",
+    "application": "ADS-B aircraft transponder",
+    "typical_devices": "FlightAware Pro Stick Plus (RTL-SDR ADS-B); RadarBox ADS-B receiver; Jetvision A3 stick; dump1090-mutability (software decoder); ADSBExchange feeder; OpenSky Network receiver; Mode-S Beast; Garmin GTX 335 transponder (aircraft TX); Honeywell TPA-100B; L3Harris Lynx II",
+    "modulation": "PPM (Pulse Position Modulation); 1Mbps; 120-bit squitter frame",
+    "power_limit": "N/A (aircraft certified equipment only for TX)",
+    "channel_spacing_khz": null,
+    "regulatory_ref": "ICAO Annex 10 Vol IV / RTCA DO-260B / EUROCAE ED-102A / FAA TSO-C166b",
+    "notes": "ADS-B Out: aircraft broadcasts position, speed, identity every ~0.5s. SSR Mode-S: 1030 MHz interrogation → 1090 MHz reply. RTL-SDR + dump1090/readsb = free ADS-B receiver. FlightAware/Flightradar24 feed = free premium account. Range: ~250-400 nm line of sight.",
+    "verified": true
+  }
+]

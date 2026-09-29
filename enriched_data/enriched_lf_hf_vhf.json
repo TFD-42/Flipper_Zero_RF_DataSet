@@ -1,0 +1,18 @@
+[
+  {
+    "freq_low_mhz": 0.125,
+    "freq_high_mhz": 0.135,
+    "country_code": "GLOBAL",
+    "region": "ITU All Regions",
+    "service": "SRD LF RFID (125 kHz)",
+    "status": "PRIMARY",
+    "application": "Access control / animal ID / old car immobilisers",
+    "typical_devices": "EM4100/EM4200 proximity card (Flipper Zero RFID read/emulate); HID Prox card (26-bit Wiegand); AWID card; Indala card; FDX-B animal microchip (ISO 11784/11785); TIRIS RFID (Texas Instruments); Pyramid Series readers (HID); Paxton Net2 reader (125 kHz older models); ACM-1000/ACM-500 reader; ProxMark3 (clone/attack tool)",
+    "modulation": "ASK/FSK; Manchester/Biphase/PSK encoding depending on protocol",
+    "power_limit": "LF reader field: 42 dBμA/m at 10m typical",
+    "channel_spacing_khz": null,
+    "regulatory_ref": "ISO 11784/11785 (FDX-B animal); HID Wiegand de-facto standard; ETSI EN 300 330",
+    "notes": "EM4100: 64-bit read-only ID, Manchester encoding, 125 kHz. HID Prox: proprietary encoding, 26-bit Wiegand output. IMPORTANT: Flipper Zero can READ and EMULATE most 125 kHz cards (EM4100, HID Prox, Indala). ProxMark3: full attack capability (read/write/emulate/brute-force). Security note: most 125 kHz systems have NO crypto — trivially cloneable.",
+    "verified": true
+  }
+]
